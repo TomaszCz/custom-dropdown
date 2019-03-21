@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Value } from './custom-dropwodn.model';
 
 @Component({
@@ -10,21 +10,15 @@ export class CustomDropdownComponent implements OnInit {
   @Input() values: Value[];
   filteredValues: Value[];
   showDropdown: boolean;
-
-  constructor(private ref: ChangeDetectorRef) { }
-
-  // tslint:disable-next-line:variable-name
-  _listFilter = '';
-  get listFilter(): string {
-    return this._listFilter;
-  }
-  set listFilter(value: string) {
-    this.filteredValues = this.values.filter(x => x.label.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) !== -1);
-    this.showDropdownEvaluate();
-  }
+  listFilter: string;
 
   ngOnInit() {
     this.filteredValues = this.values;
+  }
+
+  valueChange(value: string) {
+    this.filteredValues = this.values.filter(x => x.label.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) !== -1);
+    this.showDropdownEvaluate();
   }
 
   showDropdownEvaluate() {
@@ -38,7 +32,6 @@ export class CustomDropdownComponent implements OnInit {
   select(v: Value): void {
     this.listFilter = v.label;
     this.showDropdown = false;
-    this.ref.detectChanges();
   }
 
 }
