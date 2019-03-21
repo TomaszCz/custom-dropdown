@@ -34,4 +34,10 @@ export class CustomDropdownComponent implements OnInit {
     this.showDropdown = false;
   }
 
+  clear(): void {
+    this.listFilter = '';
+    this.showDropdown = false;
+    this.filteredValues = this.values;
+  }
+
 }
