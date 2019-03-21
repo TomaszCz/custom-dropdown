@@ -1,0 +1,11 @@
+<div class="container">
+  <!-- <input class="custom-input" type="text" (click)="toggleDropdown()" placeholder="Your transport" [value]="listFilter" [(ngModel)]="listFilter"> -->
+  <input class="custom-input" type="text" (click)="toggleDropdown()" placeholder="Your transport" [value]="listFilter" [(ngModel)]="listFilter" (ngModelChange)="onChange($event)" >
+  <i (click)="toggleDropdown()" class="la la-angle-down caret"></i>
+  <div *ngIf="showDropdown" class='state-container-dropdown'>
+    <div class="item" (click)="select(v)" *ngFor="let v of filteredValues">
+      {{v.label}}
+      <i class="icon" [ngClass]="v.icon"></i>
+    </div>
+  </div>
+</div>
