@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fingo-challenge": {
+    "custom-dropdown": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fingo-challenge",
+            "outputPath": "dist/custom-dropdown",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fingo-challenge:build"
+            "browserTarget": "custom-dropdown:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "fingo-challenge:build:production"
+              "browserTarget": "custom-dropdown:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fingo-challenge:build"
+            "browserTarget": "custom-dropdown:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "fingo-challenge-e2e": {
+    "custom-dropdown-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "fingo-challenge:serve"
+            "devServerTarget": "custom-dropdown:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "fingo-challenge:serve:production"
+              "devServerTarget": "custom-dropdown:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "fingo-challenge"
+  "defaultProject": "custom-dropdown"
 }

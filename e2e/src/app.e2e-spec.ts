@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to fingo-challenge!');
+    expect(page.getTitleText()).toEqual('Welcome to custom-dropdown!');
   });
 
   afterEach(async () => {
