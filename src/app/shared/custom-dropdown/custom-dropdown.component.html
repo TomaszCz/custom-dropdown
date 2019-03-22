@@ -3,7 +3,7 @@
   <i *ngIf="!listFilter" (click)="toggleDropdown()" class="la la-angle-down caret"></i>
   <i *ngIf="listFilter" (click)="clear()" class="la la-remove caret"></i>
   <div *ngIf="showDropdown" class='state-container-dropdown'>
-    <div class="item" (click)="select(v)" *ngFor="let v of filteredValues">
+    <div class="item" (click)="select(v)" *ngFor="let v of filteredValues;trackBy: trackByFn">
       {{v.label}}
       <i class="icon" [ngClass]="v.icon"></i>
     </div>

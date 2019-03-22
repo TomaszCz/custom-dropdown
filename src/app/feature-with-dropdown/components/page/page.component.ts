@@ -16,4 +16,9 @@ export class PageComponent {
     { label: 'Plane', icon: 'la la-plane' },
     { label: 'Ship', icon: 'la la-ship' }
   ] as Value[];
+
+  append(): void {
+    this.values.push(this.values[Math.floor(Math.random() * this.values.length)]);
+  }
+
 }

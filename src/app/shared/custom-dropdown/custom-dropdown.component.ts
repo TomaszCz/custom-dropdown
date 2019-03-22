@@ -8,6 +8,7 @@ import { Value } from './custom-dropwodn.model';
 })
 export class CustomDropdownComponent implements OnInit {
   @Input() values: Value[];
+
   filteredValues: Value[];
   showDropdown: boolean;
   listFilter: string;
@@ -16,16 +17,16 @@ export class CustomDropdownComponent implements OnInit {
     this.filteredValues = this.values;
   }
 
-  valueChange(value: string) {
-    this.filteredValues = this.values.filter(x => x.label.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) !== -1);
-    this.showDropdownEvaluate();
+  trackByFn(index: number, _: Value): number {
+    return index;
   }
 
-  showDropdownEvaluate() {
+  valueChange(value: string): void {
+    this.filteredValues = this.values.filter(x => x.label.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) !== -1);
     this.showDropdown = (this.filteredValues && this.filteredValues.length > 0) === true ? true : false;
   }
 
-  toggleDropdown() {
+  toggleDropdown(): void {
     this.showDropdown = !this.showDropdown;
   }
 
