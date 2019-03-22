@@ -6,8 +6,8 @@ import { By } from '@angular/platform-browser';
 import { Value } from './custom-dropwodn.model';
 
 describe('CustomDropdownComponent', () => {
-  let component: CustomDropdownComponent;
-  let fixture: ComponentFixture<CustomDropdownComponent>;
+  let component: CustomDropdownComponent<any>;
+  let fixture: ComponentFixture<CustomDropdownComponent<any>>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,13 +21,13 @@ describe('CustomDropdownComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     component.values = [
-      { label: 'Bicycle', icon: 'la la-bicycle' },
-      { label: 'Motorcycle', icon: 'la la-motorcycle' },
-      { label: 'Car', icon: 'la la-car' },
-      { label: 'Train', icon: 'la la-train' },
-      { label: 'Plane', icon: 'la la-plane' },
-      { label: 'Ship', icon: 'la la-ship' }
-    ] as Value[];
+      { label: 'Bicycle', icon: 'la la-bicycle', customValue: 'lalala' },
+      { label: 'Motorcycle', icon: 'la la-motorcycle', customValue: 'lalala' },
+      { label: 'Car', icon: 'la la-car', customValue: 'lalala' },
+      { label: 'Train', icon: 'la la-train', customValue: 'lalala' },
+      { label: 'Plane', icon: 'la la-plane', customValue: 'lalala' },
+      { label: 'Ship', icon: 'la la-ship', customValue: 'lalala' }
+    ] as Value<string>[];
   });
 
   it('should create', () => {

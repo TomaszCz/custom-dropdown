@@ -6,11 +6,11 @@ import { Value } from './custom-dropwodn.model';
   templateUrl: './custom-dropdown.component.html',
   styleUrls: ['./custom-dropdown.component.less']
 })
-export class CustomDropdownComponent implements OnInit {
-  @Input() values: Value[];
-  @Output() selected = new EventEmitter<Value | null>();
+export class CustomDropdownComponent<T> implements OnInit {
+  @Input() values: Value<T>[];
+  @Output() selected = new EventEmitter<Value<T> | null>();
 
-  filteredValues: Value[];
+  filteredValues: Value<T>[];
   showDropdown: boolean;
   listFilter: string;
 
@@ -18,7 +18,7 @@ export class CustomDropdownComponent implements OnInit {
     this.filteredValues = this.values;
   }
 
-  trackByFn(index: number, _: Value): number {
+  trackByFn(index: number, _: Value<T>): number {
     return index;
   }
 
@@ -32,7 +32,7 @@ export class CustomDropdownComponent implements OnInit {
     this.showDropdown = !this.showDropdown;
   }
 
-  select(v: Value): void {
+  select(v: Value<T>): void {
     this.listFilter = v.label;
     this.showDropdown = false;
     this.selected.emit(v);
