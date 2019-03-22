@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Value } from './custom-dropwodn.model';
 
 @Component({
@@ -8,6 +8,7 @@ import { Value } from './custom-dropwodn.model';
 })
 export class CustomDropdownComponent implements OnInit {
   @Input() values: Value[];
+  @Output() selected = new EventEmitter<Value | null>();
 
   filteredValues: Value[];
   showDropdown: boolean;
@@ -23,7 +24,8 @@ export class CustomDropdownComponent implements OnInit {
 
   valueChange(value: string): void {
     this.filteredValues = this.values.filter(x => x.label.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) !== -1);
-    this.showDropdown = (this.filteredValues && this.filteredValues.length > 0) === true ? true : false;
+    this.showDropdown = this.filteredValues && this.filteredValues.length > 0;
+    this.selected.emit(null);
   }
 
   toggleDropdown(): void {
@@ -33,12 +35,14 @@ export class CustomDropdownComponent implements OnInit {
   select(v: Value): void {
     this.listFilter = v.label;
     this.showDropdown = false;
+    this.selected.emit(v);
   }
 
   clear(): void {
     this.listFilter = '';
     this.showDropdown = false;
     this.filteredValues = this.values;
+    this.selected.emit(null);
   }
 
 }

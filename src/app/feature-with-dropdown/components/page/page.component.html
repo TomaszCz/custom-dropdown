@@ -1,4 +1,8 @@
 <button (click)="append()">Append random item</button>
+<br/>
+<br/>
+<br/>
+<div *ngIf="selected">Selected item is: {{selected | json}}</div>
 <div class="container">
-  <app-custom-dropdown [values]="values"></app-custom-dropdown>
+  <app-custom-dropdown [values]="values" (selected)="doSthWithSelectedValue($event)"></app-custom-dropdown>
 </div>

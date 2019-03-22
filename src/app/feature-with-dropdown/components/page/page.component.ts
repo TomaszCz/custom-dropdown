@@ -8,6 +8,8 @@ import { Value } from 'src/app/shared/custom-dropdown/custom-dropwodn.model';
 })
 export class PageComponent {
 
+  selected: Value;
+
   values = [
     { label: 'Bicycle', icon: 'la la-bicycle' },
     { label: 'Motorcycle', icon: 'la la-motorcycle' },
@@ -21,4 +23,7 @@ export class PageComponent {
     this.values.push(this.values[Math.floor(Math.random() * this.values.length)]);
   }
 
+  doSthWithSelectedValue(v: Value) {
+    this.selected = v;
+  }
 }
